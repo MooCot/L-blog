@@ -23,6 +23,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
 
-	Route::get('/',  [App\Http\Controllers\Admin\HomeController::class, 'index']);
+	Route::get('/',  [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin');
 
 });
