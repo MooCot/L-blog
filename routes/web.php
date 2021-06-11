@@ -23,6 +23,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/welcome', 'FeedbackController@index')->name('feedback.index');
+Route::post('/welcome', 'FeedbackController@send')->name('feedback.send');
 
 Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
 
