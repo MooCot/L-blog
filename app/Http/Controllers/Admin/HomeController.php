@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,10 +12,12 @@ class HomeController extends Controller
     public function index()
 		{
 
-				$post_count = Post::all()->count();
+				$posts_count = Post::all()->count();
+				$categories_count = Category::all()->count();
 
 				return view('admin.home.index', [
-					'posts_count' => $post_count
+					'posts_count' => $posts_count, 
+					'categories_count' => $categories_count, 
 				]);
 		}
 }
