@@ -56,7 +56,12 @@
 						<img src="/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
 					</div>
 					<div class="info">
-						<a href="#" class="d-block">{{ Auth::user()->name }}</a>
+						<a href="{{ route('logout') }}" class="d-block" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+							{{ Auth::user()->name }} {{ __('Logout') }}
+						</a>
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+							@csrf
+						</form>
 					</div>
 				</div>
 
@@ -64,7 +69,7 @@
 				<nav class="mt-2">
 					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 						<!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+              with font-awesome or any other icon font library -->
 						<li class="nav-item">
 							<a href="{{ route('homeAdmin') }}" class="nav-link">
 								<i class="nav-icon fas fa-th"></i>
